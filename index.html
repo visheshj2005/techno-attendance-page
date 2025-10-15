@@ -6,91 +6,157 @@
     <title>Techno Auto Attendance</title>
     <style>
         :root {
-            --primary-color: #6a11cb;
-            --secondary-color: #2575fc;
-            --background-color: #f8f9fa;
-            --card-background: #ffffff;
-            --text-color: #212529;
-            --muted-text-color: #6c757d;
+            /* Smigle Theme Color Palette */
+            --background-color: #ffffff;
+            --text-color: #212121; /* Dark gray for text */
+            --muted-text-color: #757575; /* Lighter gray for subtitles */
+            --border-color: #eeeeee; /* Light gray for borders */
+            --accent-color: #007bff; /* A simple accent color (optional) */
         }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             margin: 0;
             padding: 2rem 1rem;
+            line-height: 1.7; /* Increased line-height for readability */
         }
+
         .container {
-            max-width: 800px;
+            max-width: 720px; /* Slightly narrower for better reading flow */
             margin: 0 auto;
             text-align: center;
         }
+
         .header {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
+
         h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--muted-text-color);
+            font-size: 3rem; /* Larger font size for impact */
+            font-weight: 700;
             margin-bottom: 2rem;
+            color: var(--text-color);
+            /* Removed gradient text styles */
         }
+
+        /* The download button is now styled as a simple, clean link */
         .download-button {
             display: inline-block;
             text-decoration: none;
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: #fff;
-            background-image: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-color);
+            background-color: transparent;
+            padding: 0.8rem 2rem;
+            border-radius: 6px;
+            border: 2px solid var(--text-color);
+            transition: background-color 0.2s ease, color 0.2s ease;
+             /* Removed shadows and transforms */
         }
+
         .download-button:hover, .download-button:focus {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background-color: var(--text-color);
+            color: var(--background-color);
         }
+
         .features-section {
             margin-top: 4rem;
+            margin-bottom: 4rem; /* Added margin to separate from comments */
             text-align: left;
         }
+
         h2 {
             text-align: center;
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
             color: var(--text-color);
         }
+
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr; /* Stack cards on top of each other */
+            gap: 2rem; /* Increased gap for more space */
+        }
+
+        .feature-card {
+            background: var(--background-color);
+            padding: 1.5rem;
+            border: 1px solid var(--border-color); /* Simplified border */
+            border-radius: 8px; /* Subtle rounding */
+            /* Removed box-shadow for a flatter look */
+            display: flex;
+            align-items: flex-start;
             gap: 1.5rem;
         }
-        .feature-card {
-            background: var(--card-background);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e9ecef;
-        }
+
         .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-top: 5px;
         }
-        .feature-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+        
+        .feature-content h3 {
+            font-size: 1.25rem;
+            margin: 0 0 0.5rem 0;
+            color: var(--text-color);
         }
-        .feature-card p {
+
+        .feature-content p {
             font-size: 1rem;
             color: var(--muted-text-color);
             line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--muted-text-color);
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.75rem; /* Space between text and logo */
+        }
+
+        .footer a {
+            display: inline-flex; /* Helps align the SVG vertically */
+            align-items: center;
+        }
+        
+        .footer a svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--muted-text-color);
+            transition: fill 0.2s ease;
+        }
+
+        .footer a:hover svg {
+            fill: var(--text-color);
+        }
+
+
+        /* Responsive layout for wider screens */
+        @media (min-width: 768px) {
+            .feature-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            .feature-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+             .feature-icon {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -98,6 +164,7 @@
     <div class="container">
         <div class="header">
             <h1>Techno Attendance</h1>
+            <p class="subtitle" style="font-size: 1.2rem; color: var(--muted-text-color); margin-bottom: 2.5rem;">The simplest way to mark your attendance. One-time setup, automatic login.</p>
             <a href="https://storage.googleapis.com/techno-attendance-apk-downloads/app-debug.apk" class="download-button" download>
                 🚀 Download APK
             </a>
@@ -108,21 +175,46 @@
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">1️⃣</div>
-                    <h3>One-Time Setup</h3>
-                    <p>Enter your Roll Number, Email, and Password just once when you first open the app.</p>
+                    <div class="feature-content">
+                        <h3>One-Time Setup</h3>
+                        <p>Enter your Roll Number, Email, and Password just once when you first open the app.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⚡</div>
-                    <h3>Automatic Login</h3>
-                    <p>Every time you open the app, it will automatically and securely log you in to the attendance portal.</p>
+                    <div class="feature-content">
+                        <h3>Automatic Login</h3>
+                        <p>The app automatically and securely logs you in to the attendance portal every time.</p>
+                    </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔒</div>
-                    <h3>Secure & Private</h3>
-                    <p>Your credentials are saved securely only on your device and are never shared. To reset, simply reinstall the app.</p>
+                    <div class="feature-content">
+                        <h3>Secure & Private</h3>
+                        <p>Your credentials are saved securely only on your device and are never shared anywhere.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</body>
+    
+    <script src="https://utteranc.es/client.js"
+            repo="visheshj2005/techno-attendance-app"
+            issue-term="pathname"
+            label="comment"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <footer class="footer">
+        <div class="footer-content">
+            <span>Made by Vishesh Jain</span>
+            <a href="#" target="_blank" rel="noopener noreferrer" title="GitHub Repository">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" version="1.1" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+        </div>
+    </footer>
+    </body>
 </html>
